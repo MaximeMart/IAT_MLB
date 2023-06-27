@@ -64,18 +64,18 @@ class DQNAgent(QAgent):
         # Méthode de descente de gradient
         self.optimizer = optim.Adam(self.policy_net.parameters(), lr=self.alpha)
 
-    def init_replay_memory(self, env: Maze):
+    def init_replay_memory(self, env: SpaceInvaders):
         """Cette méthode initialise le buffer d'expérience replay.
 
         :param env: Environnement (le labyrinthe)
         :type env: Maze
         """
         # Replay memory pour s, a, r, terminal, and sn
-        self.Ds = np.zeros([self.replay_memory_size, env.nf, env.ny, env.nx], dtype=np.float32)
-        self.Da = np.zeros([self.replay_memory_size, env.na], dtype=np.float32)
-        self.Dr = np.zeros([self.replay_memory_size], dtype=np.float32)
+        self.Ds = np.zeros([self.replay_memory_size, env.nf, env.ny, env.nx], dtype=np.float32) #TO MODIFY
+        self.Da = np.zeros([self.replay_memory_size, env.na], dtype=np.float32) #TO MODIFY
+        self.Dr = np.zeros([self.replay_memory_size], dtype=np.float32) 
         self.Dt = np.zeros([self.replay_memory_size], dtype=np.float32)
-        self.Dsn = np.zeros([self.replay_memory_size, env.nf, env.ny, env.nx], dtype=np.float32)
+        self.Dsn = np.zeros([self.replay_memory_size, env.nf, env.ny, env.nx], dtype=np.float32) #TO MODIFY
 
         self.d = 0     # counter for storing in D
         self.ds = 0    # total number of steps
