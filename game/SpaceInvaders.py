@@ -90,11 +90,11 @@ class SpaceInvaders():
         Cette méthode doit renvoyer l'état du système comme vous aurez choisi de
         le représenter. Vous pouvez utiliser les accesseurs ci-dessus pour cela. 
         """
-        distance_joueur = math.sqrt((self.get_player_X-self.get_indavers_X[0])*2 + (self.get_player_Y-self.get_indavers_Y[0])*2)
-        sens_invader = math.sqrt((self.get_indavers_X[0]-self.prev_alien_x)*2 + (self.get_indavers_Y[0]-self.prev_alien_y)*2)
-        distance_balle = math.sqrt((self.get_bullet_X-self.get_indavers_X[0])*2 + (self.get_bullet_Y-self.get_indavers_Y[0])*2)
-        self.prev_alien_x = self.get_indavers_X[0]
-        self.prev_alien_Y = self.get_indavers_Y[0]
+        distance_joueur = math.sqrt(abs((self.get_player_X()-self.get_indavers_X()[0])*2 + (self.get_player_Y()-self.get_indavers_Y()[0])*2))
+        sens_invader = math.sqrt(abs((self.get_indavers_X()[0]-self.prev_alien_x)*2 + (self.get_indavers_Y()[0]-self.prev_alien_y)*2))
+        distance_balle = math.sqrt(abs((self.get_bullet_X()-self.get_indavers_X()[0])*2 + (self.get_bullet_Y()-self.get_indavers_Y()[0])*2))
+        self.prev_alien_x = self.get_indavers_X()[0]
+        self.prev_alien_Y = self.get_indavers_Y()[0]
 
         state = {distance_joueur, distance_balle, sens_invader, self.get_bullet_state}
 
